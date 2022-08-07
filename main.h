@@ -1,21 +1,23 @@
 #ifndef _MAIN_H
 #define _MAIN_H
-#define BUFF_SIZE 1024
-/**
- * struct fmt - Struct op
- * @fmt: The format.
- * @fn: The function associated.
- */
-struct fmt
-{
-	char fmt;
-	int (*fn)(va_list, char[], int, int, int, int);
-};
+#include <stdarg.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stddef.h>
+#include <limits.h>
 
 /**
- * typedef struct fmt fmt_t - Struct op
- * @fmt: The format.
- * @fm_t: The function associated.
+ * struct prin - structure that contain flag and funtion
+ * @flag: character that identify funtion
+ * @fn: pointer to funtion
  */
+typedef struct prin
+
+{
+	char flag;
+	char *(*fn)(va_list argu);
+} sir;
+
 int _printf(const char *format, ...);
 #endif 
